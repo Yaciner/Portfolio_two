@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'PlayfairDisplay Black';
+  src:
+    url(PlayfairDisplay-Black.woff2) format('woff2'),
+    url(PlayfairDisplay-Black.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay Bold';
+  src:
+    url(PlayfairDisplay-Bold.woff2) format('woff2'),
+    url(PlayfairDisplay-Bold.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay Regular';
+  src:
+    url(PlayfairDisplay-Regular.woff2) format('woff2'),
+    url(PlayfairDisplay-Regular.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

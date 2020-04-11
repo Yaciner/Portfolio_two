@@ -1,0 +1,58 @@
+.name {
+  font-family: 'PlayfairDisplay Regular';
+  font-size: 2.5rem;
+  color: var(--color-white);
+  position: fixed;
+  width: 100vw;
+  text-align: center;
+  padding: 2rem 0;
+  z-index: 1010;
+}
+
+
+.page-controls {
+  width: 100vw;
+  height: 100vw;
+}
+
+.page-controls__work___p {
+  position: absolute;
+  font-size: 1.3rem;
+  font-family: 'Roboto Regular';
+  color: white;
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.heading_1 {
+  font-size: 20rem;
+  border-bottom: .2rem solid var(--color-white);
+}
+
+.body_1 {
+  font-size: 20rem;
+  border-bottom: .2rem solid var(--color-white);
+}
+
+.heading_2 {
+  text-transform: capitalize;
+  font-size: 4rem;
+  padding-bottom: 1rem;
+}
+
+.body_2 {
+  font-size: 2rem;
+  line-height: 120%;
+}

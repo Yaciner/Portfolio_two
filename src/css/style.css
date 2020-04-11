@@ -1,0 +1,46 @@
+@import 'reset';
+@import 'vars';
+@import 'layout';
+@import 'page-home';
+@import 'page-work';
+@import 'about';
+@import 'other';
+@import 'mediaqueries';
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.inter-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  background: #457fca; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #457fca, #5691c8); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #457fca, #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.inter-background:after {
+  /* content is required when using :after */
+  content: "";
+  /* The grainy image */
+  ackground-image: url(../assets/img/texture.png);
+  /* Specify a height and width above and beyond the page header for movement */
+  height: 300%;
+  width: 300%;
+  /* We're using opacity in place of a transparent image */
+  opacity: 0.3;
+  /* We'll need this when the animation kicks in to hold the position of the texture */
+  position: fixed;
+}
