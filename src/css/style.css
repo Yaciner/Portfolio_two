@@ -35,7 +35,6 @@ body {
   /* content is required when using :after */
   content: "";
   /* The grainy image */
-  ackground-image: url(../assets/img/texture.png);
   /* Specify a height and width above and beyond the page header for movement */
   height: 300%;
   width: 300%;
@@ -43,4 +42,30 @@ body {
   opacity: 0.3;
   /* We'll need this when the animation kicks in to hold the position of the texture */
   position: fixed;
+}
+
+.title {
+  font-size: 10rem;
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+#bg {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+}
+
+#bg::before {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
 }
