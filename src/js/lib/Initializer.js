@@ -1,4 +1,4 @@
-const initializeParticles = () => {
+const Initializer = () => {
   setTimeout(() => document.body.classList.add('render'), 60);
   const navdemos = Array.from(document.querySelectorAll('nav.demos > .demo'));
   const total = navdemos.length;
@@ -25,7 +25,6 @@ const initializeParticles = () => {
     }
     navigate(linkEl);
   });
-
 }
 
-export default initializeParticles;
+export default Initializer;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Home from '../components/Homepage';
+import {Cursor} from '../lib/CustomCursor';
 
 class App extends Component {
   //
@@ -11,6 +12,9 @@ class App extends Component {
   //   getUserConfirmation: (message, callback) => callback(window.confirm(message)),
   // });
 
+componentDidMount() {
+  Cursor();
+}
 
   renderHome = () => {
     return <Home />;

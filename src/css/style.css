@@ -1,11 +1,8 @@
 @import 'reset';
 @import 'vars';
 @import 'layout';
-@import 'page-home';
-@import 'page-work';
-@import 'about';
-@import 'other';
 @import 'mediaqueries';
+
 
 html {
   box-sizing: border-box;
@@ -13,6 +10,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 body {
@@ -53,7 +51,7 @@ body {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: 100;
 }
 
 #bg {
