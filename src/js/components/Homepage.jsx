@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // import { Link } from 'react-router-dom';
 import Grained from '../lib/Grained';
 import Header from '../components/Header';
+import Wallpaper from '../components/Wallpaper';
 import Cursor from '../components/Cursor';
 import Initializer from '../lib/Initializer';
 import Loader from '../lib/Loader';
@@ -36,6 +37,7 @@ class Homepage extends Component {
     return (
       <div>
         <Header />
+        <Wallpaper />
         <section className="intro_section">
         <Cursor />
           <div className="loader"></div>

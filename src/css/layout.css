@@ -155,3 +155,64 @@ svg {
     }
   }
 }
+
+/* WALLPAPER */
+
+.ur_idle__bitch {
+  display: none;
+  z-index: 100000;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #457fca; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #457fca, #5691c8); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #457fca, #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  & .random_joke {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+
+    & header {
+      display: flex;
+      justify-content: center;
+      min-height: 3rem;
+    }
+
+    & .sentence_one {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      border-bottom: 2px solid white;
+    }
+
+    & .sentence_two {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+      border-bottom: 2px solid white;
+      min-height: 5rem;
+    }
+
+    & .random_joke__setup {
+      font-size: 5rem;
+      color: white;
+      min-height: 5rem;
+    }
+
+    & .random_joke__reply {
+      font-size: 5rem;
+      color: white;
+      min-height: 5rem;
+    }
+
+    & span {
+      text-align: center;
+    }
+  }
+}

@@ -8965,11 +8965,6 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-simplycountdown.js@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/simplycountdown.js/-/simplycountdown.js-1.5.0.tgz#90c9f52b542b2924a2e81cc8dd2cd4522221d835"
-  integrity sha512-yoVOSmdRLSraXzpSdOi2LdaP5EwcqC2RWBJoR32qD4OZWh2oFX+HaKtjIAv+tI1fk0GQg2bZ5CUu+5Qvz/hF3w==
-
 slash@1.0.0, slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -9837,9 +9832,10 @@ type-is@~1.6.15, type-is@~1.6.16:
     media-typer "0.3.0"
     mime-types "~2.1.18"
 
-typed.js@^2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.9.tgz#2e4e590466938ecb2ef5ec966a79b2d9381495ff"
+typed.js@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.11.tgz#d298a91f959f11a3803bf48b841a6fadd29640d9"
+  integrity sha512-1ZORHalEyLob34q738mqmwp0pT6syMigB1SZuTItqdhovWBKFIt7I5uVALXAGQZCg2MCtihCt6uqkoqPJK+9iQ==
 
 typedarray@^0.0.6:
   version "0.0.6"
