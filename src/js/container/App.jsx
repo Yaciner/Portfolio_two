@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Home from '../components/Homepage';
+import ProjectManagement from '../components/PM';
 import {Cursor} from '../lib/CustomCursor';
 
 class App extends Component {
@@ -20,11 +21,16 @@ componentDidMount() {
     return <Home />;
   }
 
+  renderPM = () => {
+    return <ProjectManagement />;
+  }
+
   render() {
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path='/' render={this.renderHome} />
+          <Route exact path='/projectmanagement' render={this.renderPM} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </BrowserRouter>

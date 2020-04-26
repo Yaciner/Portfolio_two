@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Typed from 'typed.js';
 
-let timeoutInMiliseconds = 10000;
+let timeoutInMiliseconds = 3000;
 let timeoutId;
 let run_once = false;
+let wallpaper = false;
+let setup = [];
+let punchline = [];
 
 class Header extends Component {
   componentDidMount() {
@@ -11,22 +14,36 @@ class Header extends Component {
     this.setupTimers();
   }
 
-  doInactive() {
-    document.querySelector('.ur_idle__bitch').style.display = 'block';
-    this.getJoke();
-  }
-
   setupTimers() {
     document.addEventListener("mousemove", this.resetTimer, false);
     document.addEventListener("mousedown", this.resetTimer, false);
     document.addEventListener("keypress", this.resetTimer, false);
     document.addEventListener("touchmove", this.resetTimer, false);
-    timeoutId = setTimeout(this.doInactive, timeoutInMiliseconds);
+    //timeoutId = setTimeout(this.doInactive, timeoutInMiliseconds);
+
+    timeoutId = setTimeout(() => {
+      document.querySelector('.ur_idle__bitch').style.display = 'block';
+      wallpaper = true;
+      this.getJoke();
+    }, timeoutInMiliseconds);
   }
 
   resetTimer() {
-    clearTimeout(timeoutId)
-    timeoutId = setTimeout(this.doInactive, timeoutInMiliseconds);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      document.querySelector('.ur_idle__bitch').style.display = 'block';
+      wallpaper = true;
+      this.getJoke();
+    }, timeoutInMiliseconds);
+
+    document.querySelector('.ur_idle__bitch').style.display = 'none';
+
+    console.log(wallpaper);
+    if(wallpaper === true) {
+      setup.destroy();
+      punchline.destroy();
+      wallpaper === false;
+    }
   }
 
   getJoke() {
@@ -65,21 +82,21 @@ class Header extends Component {
         showCursor: false
       };
 
-      setTimeout(() => {
-        t2 = new Typed('.ur_idle__bitch .sentence_two', urInactive_two);
-      }, 3000);
-
-      let setup = {
+      setup = {
         strings: [joke.setup],
         typeSpeed: 60,
         showCursor: false
       };
 
-      let punchline = {
+      punchline = {
         strings: [joke.punchline],
         typeSpeed: 40,
         showCursor: false
       };
+
+      setTimeout(() => {
+        t2 = new Typed('.ur_idle__bitch .sentence_two', urInactive_two);
+      }, 3000);
 
       setTimeout(() => {
         t3 = new Typed('.random_joke__setup', setup);
@@ -96,13 +113,13 @@ class Header extends Component {
     }
 
     if(run_once) {
-      let setup = {
+      setup = {
         strings: [joke.setup],
         typeSpeed: 60,
         showCursor: false
       };
 
-      let punchline = {
+      punchline = {
         strings: [joke.punchline],
         typeSpeed: 30,
         showCursor: false
@@ -126,8 +143,11 @@ class Header extends Component {
   resetJoke(urInactive_one, urInactive_two, setup, punchline) {
     setup.destroy();
     punchline.destroy();
-    this.getJoke();
+    if(wallpaper) {
+      this.getJoke();
+    }
   }
+
 
   render() {
     return (
