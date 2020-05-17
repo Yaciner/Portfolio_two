@@ -5,7 +5,7 @@ import Wallpaper from '../components/Wallpaper';
 import Cursor from '../components/Cursor';
 import Animation from "../lib/subjectAnimation";
 
-const subjects = ['Project management', 'Developemnt', 'Motion'];
+const subjects = ['Project manager', 'Developemnt', 'Motion'];
 let currentSubject;
 let currentSubjectClassName;
 
