@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
-// import { Link } from 'react-router-dom';
 import Grained from '../lib/Grained';
 import Header from '../components/Header';
 import Wallpaper from '../components/Wallpaper';
 import Cursor from '../components/Cursor';
-import Initializer from '../lib/Initializer';
-import Loader from '../lib/Loader';
-import SystemOne from '../lib/systemOne';
+import Animation from "../lib/subjectAnimation";
+
+const subjects = ['Project management', 'Developemnt', 'Motion'];
+let currentSubject;
+let currentSubjectClassName;
 
 class Homepage extends Component {
+
+  componentWillMount() {
+    //set global subjectIndex
+    window.subjectIndex = 0;
+    currentSubject = subjects[window.subjectIndex];
+    window.subjectText = subjects[window.subjectIndex];
+    currentSubjectClassName = currentSubject.replace(/\s+/g, '').toLowerCase();
+  }
 
   componentDidMount() {
     // setup the options for the bg
@@ -21,15 +30,13 @@ class Homepage extends Component {
       grainWidth: 1,
       grainHeight: 1
     };
+
     // Initialize textured background animation
-  //  Grained('#bg',options);
+    Grained('#bg',options);
 
-    //initialize 3D
-    Initializer();
+    //animate
+    let animation = new Animation();
 
-    //set global indexOf
-    window.demoNum = 1;
-    new Loader(SystemOne);
 
   }
 
@@ -39,13 +46,12 @@ class Homepage extends Component {
         <Header />
         <section className="intro_section">
         <Cursor />
-          <div className="loader"></div>
-          <div className="content-outer">
-            <div className="content-inner">
-              <h1>Oscillation</h1>
-              <a href="/" className="replay-animation">Replay</a>
-            </div>
-          </div>
+        <section className="intro_section__info">
+          <h1>
+            { window.subjectText }
+          </h1>
+        </section>
+        <div className={`subject_animation ${currentSubjectClassName}`} data-tilt data-tilt-scale=".9" data-tilt-full-page-listening></div>
         </section>
       </div>
     );

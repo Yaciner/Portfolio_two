@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CircleSVG from "../lib/CircleSVG";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useHistory } from "react-router-dom";
+
 import $ from 'jquery';
 let subjectIndex = 0;
 let mouseHoldTimer;
@@ -12,7 +13,7 @@ componentDidMount() {
   //initialize mouse
   let cursorSubject = document.querySelector('.cursor_subject__text');
   let circle = document.querySelector('.circlesvg_circle');
-  cursorSubject.innerHTML = 'Project management';
+  cursorSubject.innerHTML = window.subjectText;
 
   $('body').mouseup(function() {
     circle ? circle.setAttribute('stroke-dashoffset', 1000) : null;
@@ -21,7 +22,7 @@ componentDidMount() {
     circle ? circle.setAttribute('stroke-dashoffset', 0) : null;
     mouseHoldTimer = setTimeout(() => {
       document.querySelector('.cursor_shape').classList.add("expand");
-      let history = useHistory();
+      const history = useHistory();
       history.push('/projectmanagement');
 
       setTimeout(() => {
