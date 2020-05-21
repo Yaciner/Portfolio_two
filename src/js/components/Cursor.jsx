@@ -14,16 +14,23 @@ componentDidMount() {
   let cursorSubject = document.querySelector('.cursor_subject__text');
   let circle = document.querySelector('.circlesvg_circle');
   cursorSubject.innerHTML = window.subjectText;
+  let currentSubjectClassName = window.subjectText.replace(/\s+/g, '').toLowerCase();
 
   $('body').mouseup(function() {
     circle ? circle.setAttribute('stroke-dashoffset', 1000) : null;
+    document.querySelector('.cursor_progressbar').style.transition = 'width 10s linear';
+    document.querySelector('.cursor_progressbar').style.width = '100%';
     clearTimeout(mouseHoldTimer);
+
   }).mousedown(function() {
     circle ? circle.setAttribute('stroke-dashoffset', 0) : null;
+    document.querySelector('.cursor_progressbar').style.transition = 'width 1s ease';
+    document.querySelector('.cursor_progressbar').style.width = '0';
+
     mouseHoldTimer = setTimeout(() => {
       document.querySelector('.cursor_shape').classList.add("expand");
       const history = useHistory();
-      history.push('/projectmanagement');
+      history.push('/' + currentSubjectClassName);
 
       setTimeout(() => {
           document.querySelector('.cursor_shape').classList.remove("expand");
@@ -37,7 +44,6 @@ componentDidMount() {
 }
 
 mouseDown(circle) {
-  console.log('entering');
   circle ? circle.setAttribute('stroke-dashoffset', 0) : null;
 }
 

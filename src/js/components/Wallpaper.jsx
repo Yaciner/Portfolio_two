@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Typed from 'typed.js';
 
-let timeoutInMiliseconds = 3000;
+let timeoutInMiliseconds = 10000;
 let timeoutId;
 let run_once = false;
 let wallpaper = false;
@@ -19,7 +19,6 @@ class Header extends Component {
     document.addEventListener("mousedown", this.resetTimer, false);
     document.addEventListener("keypress", this.resetTimer, false);
     document.addEventListener("touchmove", this.resetTimer, false);
-    //timeoutId = setTimeout(this.doInactive, timeoutInMiliseconds);
 
     timeoutId = setTimeout(() => {
       document.querySelector('.ur_idle__bitch').style.display = 'block';
@@ -37,8 +36,6 @@ class Header extends Component {
     }, timeoutInMiliseconds);
 
     document.querySelector('.ur_idle__bitch').style.display = 'none';
-
-    console.log(wallpaper);
     if(wallpaper === true) {
       setup.destroy();
       punchline.destroy();

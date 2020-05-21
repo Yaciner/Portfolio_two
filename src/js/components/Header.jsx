@@ -10,14 +10,10 @@ componentDidMount() {
 
   activeItems.forEach((activeItem) => {
     activeItem.addEventListener('mouseover',() => {
-
-
-
       listItems.forEach((item) => {
         item.style.visibility = 'visible';
 
       });
-
       cursorSubject.style.visibility = 'hidden';
     });
   });

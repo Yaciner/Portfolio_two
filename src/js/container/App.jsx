@@ -30,7 +30,7 @@ componentDidMount() {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' render={this.renderHome} />
-          <Route exact path='/projectmanagement' render={this.renderPM} />
+          <Route exact path='/projectmanager' render={this.renderPM} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </BrowserRouter>

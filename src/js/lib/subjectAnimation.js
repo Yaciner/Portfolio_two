@@ -1,10 +1,13 @@
 import lottie from 'lottie-web';
 import VanillaTilt from 'vanilla-tilt';
 import $ from 'jquery';
+import {GlitchFilter} from '@pixi/filter-glitch';
+import {Container} from 'pixi.js';
 
 const subjectAnimation = () => {
   let currentSubjectClassName = window.subjectText.replace(/\s+/g, '').toLowerCase();
   let container = document.querySelector('.subject_animation' + '.' + currentSubjectClassName);
+
   if (container) {
      lottie.loadAnimation({
          container: container, // the dom element that will contain the animation
@@ -18,6 +21,8 @@ const subjectAnimation = () => {
    		max: 25,
    		speed: 400
    	});
+
+
   }
 
 };
