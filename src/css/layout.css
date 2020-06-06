@@ -240,6 +240,25 @@ a {
     font-family: 'Sofia Light';
     font-size: 4.8rem;
     color: white;
+    overflow: hidden;
+
+    & span {
+      position: relative;
+      top: 0;
+      transition: top .4s ease;
+      transition-delay: .1s;
+    }
+  }
+
+  & h2 {
+    overflow: hidden;
+
+    & span {
+      position: relative;
+      top: 0;
+      transition: top .4s ease;
+
+    }
   }
 
   & .intro_section__subtitle {

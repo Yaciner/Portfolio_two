@@ -18,7 +18,6 @@ class Homepage extends Component {
     currentSubject = Object.keys(subjects)[window.subjectIndex];
 
     window.subjectText = currentSubject;
-    console.log(currentSubject);
     currentSubjectClassName = currentSubject.replace(/\s+/g, '').toLowerCase();
 
     // window.addEventListener('scroll', throttle(header, 10));
@@ -70,10 +69,33 @@ class Homepage extends Component {
     let currentWidth = document.querySelector('.cursor_progressbar').offsetWidth;
 
     if(fullWidth - 2 < currentWidth && noChangeSubject) {
-      window.subjectIndex =+ 1;
-      noChangeSubject = false;
-      this.componentWillMount();
-      this.forceUpdate();
+      document.querySelector('.intro_section h1 span').style.top = '-60px';
+      document.querySelector('.intro_section h2 span').style.top = '-60px';
+      setTimeout(() => {
+        window.subjectIndex =+ 1;
+        noChangeSubject = false;
+        this.componentWillMount();
+        document.querySelector('.cursor_progressbar').style.transition = 'width 1s ease';
+        document.querySelector('.cursor_progressbar').style.width = '0';
+        document.querySelector('.cursor_subject__text').innerHTML = window.subjectText;
+        this.forceUpdate();
+        document.querySelector('.intro_section h1 span').style.opacity = '0';
+        document.querySelector('.intro_section h2 span').style.opacity = '0';
+        document.querySelector('.intro_section h1 span').style.top = '60px';
+        document.querySelector('.intro_section h2 span').style.top = '60px';
+      }, 700);
+
+      //do animations
+
+      setTimeout(() => {
+        document.querySelector('.intro_section h1 span').style.opacity = '1';
+        document.querySelector('.intro_section h2 span').style.opacity = '1';
+        document.querySelector('.cursor_progressbar').style.transition = 'width 10s linear';
+        document.querySelector('.cursor_progressbar').style.width = '100%';
+        document.querySelector('.intro_section h1 span').style.top = '0';
+        document.querySelector('.intro_section h2 span').style.top = '0';
+      }, 1000);
+
     }
   }
 
@@ -87,15 +109,18 @@ class Homepage extends Component {
     return (
       <div>
         <Header />
-        // <Wallpaper />
         <section className="intro_section">
         <Cursor />
         <section className="intro_section__info">
-          <span className="intro_section__subtitle">
-          { Object.values(subjects)[window.subjectIndex] }
-          </span>
+          <h2 className="intro_section__subtitle">
+            <span>
+              { Object.values(subjects)[window.subjectIndex] }
+            </span>
+          </h2>
           <h1>
-            { window.subjectText }
+            <span>
+              { window.subjectText }
+            </span>
           </h1>
         </section>
         <div className={`subject_animation ${currentSubjectClassName}`} data-tilt data-tilt-scale=".9" data-tilt-full-page-listening></div>

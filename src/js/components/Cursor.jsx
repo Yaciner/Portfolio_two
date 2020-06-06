@@ -48,7 +48,6 @@ mouseDown(circle) {
 }
 
 mouseLeave(circle) {
-  console.log('leaving');
   circle ? circle.setAttribute('stroke-dashoffset', 1000) : null;
 }
 

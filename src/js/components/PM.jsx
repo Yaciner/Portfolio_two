@@ -26,7 +26,7 @@ class PM extends Component {
       <div>
         <Header />
         <section className="pm_section">
-        <Cursor />
+          <Cursor />
         </section>
       </div>
     );
