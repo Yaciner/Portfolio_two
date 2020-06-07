@@ -62,26 +62,33 @@ class Homepage extends Component {
     // perform loop work here
     // Set up next iteration of the loop
     this._frameId = window.requestAnimationFrame(this.loop.bind(this));
-    // console.log(document.querySelector('.cursor_subject').offsetWidth);
     let fullWidth = document.querySelector('.cursor_subject').offsetWidth;
-
-    // let currentWidth = getComputedStyle(document.querySelector('.cursor_progressbar')).width;
     let currentWidth = document.querySelector('.cursor_progressbar').offsetWidth;
 
     if(fullWidth - 2 < currentWidth && noChangeSubject) {
       document.querySelector('.intro_section h1 span').style.top = '-60px';
       document.querySelector('.intro_section h2 span').style.top = '-60px';
       setTimeout(() => {
-        window.subjectIndex =+ 1;
-        noChangeSubject = false;
-        this.componentWillMount();
+        if(noChangeSubject) {
+          window.subjectIndex = window.subjectIndex + 1;
+          currentSubject = Object.keys(subjects)[window.subjectIndex];
+          window.subjectText = currentSubject;
+          new Animation();
+          if(window.subjectIndex >= Object.keys(subjects).length) {
+            window.subjectIndex = 0;
+          }
+          this.componentWillMount();
+          noChangeSubject = false;
+        }
+
+        this.componentWillMount(noChangeSubject);
         document.querySelector('.cursor_progressbar').style.transition = 'width 1s ease';
         document.querySelector('.cursor_progressbar').style.width = '0';
         document.querySelector('.cursor_subject__text').innerHTML = window.subjectText;
         this.forceUpdate();
         document.querySelector('.intro_section h1 span').style.opacity = '0';
         document.querySelector('.intro_section h2 span').style.opacity = '0';
-        document.querySelector('.intro_section h1 span').style.top = '60px';
+        document.querySelector('.intro_section h1 span').style.top = '120px';
         document.querySelector('.intro_section h2 span').style.top = '60px';
       }, 700);
 
@@ -90,12 +97,14 @@ class Homepage extends Component {
       setTimeout(() => {
         document.querySelector('.intro_section h1 span').style.opacity = '1';
         document.querySelector('.intro_section h2 span').style.opacity = '1';
-        document.querySelector('.cursor_progressbar').style.transition = 'width 10s linear';
-        document.querySelector('.cursor_progressbar').style.width = '100%';
         document.querySelector('.intro_section h1 span').style.top = '0';
         document.querySelector('.intro_section h2 span').style.top = '0';
       }, 1000);
-
+      setTimeout(() => {
+        document.querySelector('.cursor_progressbar').style.transition = 'width 10s linear';
+        document.querySelector('.cursor_progressbar').style.width = '100%';
+        noChangeSubject = true;
+      }, 2000);
     }
   }
 
