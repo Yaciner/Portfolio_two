@@ -71,12 +71,13 @@ class Homepage extends Component {
       setTimeout(() => {
         if(noChangeSubject) {
           window.subjectIndex = window.subjectIndex + 1;
-          currentSubject = Object.keys(subjects)[window.subjectIndex];
-          window.subjectText = currentSubject;
-          new Animation();
+
           if(window.subjectIndex >= Object.keys(subjects).length) {
             window.subjectIndex = 0;
           }
+          currentSubject = Object.keys(subjects)[window.subjectIndex];
+          window.subjectText = currentSubject;
+          new Animation();
           this.componentWillMount();
           noChangeSubject = false;
         }
