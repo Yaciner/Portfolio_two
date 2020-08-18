@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Wallpaper from '../components/Wallpaper';
 import Cursor from '../components/Cursor';
 import Animation from "../lib/subjectAnimation";
+import lottie from 'lottie-web';
 
 const subjects = {'Project manager':"I'm currently working as a", 'Development': "but i also love", 'Motion': "and powerful"}
 let currentSubject;
@@ -46,6 +47,15 @@ class Homepage extends Component {
     //check for subjectText
     this.startLoop();
 
+    //render lottie animation cursor
+    let cursor = document.querySelector('.scroll_cursor');
+    lottie.loadAnimation({
+      container: cursor, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './assets/data/mousescroll.json' // the path to the animation json
+    });
   }
 
   componentWillUnmount() {
@@ -132,6 +142,7 @@ class Homepage extends Component {
               { window.subjectText }
             </span>
           </h1>
+          <div className="scroll_cursor"></div>
         </section>
         <div className={`subject_animation ${currentSubjectClassName}`} data-tilt data-tilt-scale=".9" data-tilt-full-page-listening></div>
         </section>
