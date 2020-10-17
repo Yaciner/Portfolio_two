@@ -5,7 +5,7 @@
   "proxy": "http://localhost:8080/",
   "license": "MIT",
   "scripts": {
-    "development": "NODE_ENV=development  webpack-dev-server --open",
+    "dev": "NODE_ENV=development  webpack-dev-server --open",
     "production": "rm -rf dist/ && npm run copydist && NODE_ENV=production webpack -p",
     "copydist": "ditto ./src/assets/ ./dist/assets/"
   },
